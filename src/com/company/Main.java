@@ -5,20 +5,23 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        int count = 0;
         Scanner scan = new Scanner(System.in);
-        int zero_count = 0;
-        int one_count = 0;
-        while (count < 10) {
-            int num = scan.nextInt();
-            if (num == 0) {
-                zero_count += 1;
-                count += 1;
-            } else if (num == 1) {
-                one_count += 1;
-                count += 1;
-            }
+        int kyojin_sum = 0;
+        int hanshin_sum = 0;
+        String winner;
+        for (int i = 1; i < 10; i++) {
+            int kyojin_point = scan.nextInt();
+            int hanshin_point = scan.nextInt();
+
+            kyojin_sum += kyojin_point;
+            hanshin_sum += hanshin_point;
         }
-        System.out.println("勝ち" + one_count + "回 " + "負け" + zero_count + "回");
+        if (kyojin_sum > hanshin_sum) {
+            winner = "巨人";
+        } else {
+            winner = "阪神";
+        }
+        System.out.println("巨人：" + kyojin_sum + "点" + "阪神：" + hanshin_sum + "点");
+        System.out.println(winner + "の勝ち");
     }
 }
