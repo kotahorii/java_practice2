@@ -4,21 +4,23 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int strike_count = 0;
-        int ball_count = 0;
         Scanner scanner = new Scanner(System.in);
-
-        while (strike_count < 3 && ball_count < 4) {
-            int num = scanner.nextInt();
-
-            if (num == 1) {
-                strike_count += 1;
-            } else if (num == 2) {
-                ball_count += 1;
-            } else if (num == 3 && strike_count < 2) {
-                strike_count += 1;
+        int num = scanner.nextInt();
+        boolean is_prime = true;
+        if (num % 2 == 0) {
+            System.out.println("素数でない");
+            is_prime = false;
+        } else {
+            for (int i = 3; i < Math.sqrt(num) + 1; i += 2) {
+                if (num % i == 0) {
+                    System.out.println("素数でない");
+                    is_prime = false;
+                    break;
+                }
             }
         }
-        System.out.println(ball_count + "ボール、" + strike_count + "ストライク");
+        if (is_prime == true) {
+            System.out.println("素数");
+        }
     }
 }
