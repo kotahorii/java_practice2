@@ -15,6 +15,8 @@ public class Main {
                 strike_count += 1;
             } else if (num == 2) {
                 ball_count += 1;
+            } else if (num == 3 && strike_count < 2) {
+                strike_count += 1;
             }
         }
         System.out.println(ball_count + "ボール、" + strike_count + "ストライク");
